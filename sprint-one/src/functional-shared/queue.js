@@ -37,7 +37,7 @@ dequeue: function(){
 
 
   delete this.storage[ys[0]];
-  return ssstored; 
+  return stored; 
 
 },
 

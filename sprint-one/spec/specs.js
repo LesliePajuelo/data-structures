@@ -49,13 +49,10 @@ define([
       });
 
       it('reports a size of 1 after adding two items and removing one', function() {
-        console.log("before the push: " + stack.size())
+        
         stack.push('a');
-        console.log("the 1st push: " + stack.size())
         stack.push('b');
-        console.log("the 2nd push: " + stack.size())
         stack.pop();
-        console.log("the 1st pop: " + stack.size())
         expect(stack.size()).to.equal(1);
       });
 
