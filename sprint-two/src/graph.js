@@ -1,5 +1,3 @@
-
-
 // ###Graph Solution
 
 // Instantiate a new graph

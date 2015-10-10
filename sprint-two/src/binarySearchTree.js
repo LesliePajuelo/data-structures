@@ -10,11 +10,6 @@ var BinarySearchTree = function(value){
 };
 
 BinarySearchTree.prototype.insert = function(value){
-  //if value is less than existing value, and
-  // there's nothing already there, 
-  // create new binarySearcTree
-  // if something is there then call insert again and test again that value.
-
   if (value < this.value){
     if(this.left === null){
       this.left = BinarySearchTree(value);
