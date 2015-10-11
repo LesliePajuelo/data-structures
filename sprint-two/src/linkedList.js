@@ -35,12 +35,12 @@ var LinkedList = function(){
       list.tail = newNode;
     } else {
       //if there are existing nodes then...
-      //
+      // set the reference in the new head to the old head
       
       newNode.next = list.head;
-      //
+      // set the reference from the old head to the new head
       list.head.prev = newNode;
-      //
+      // replace the old head with the new head
       list.head = newNode;
 
     }
@@ -48,24 +48,42 @@ var LinkedList = function(){
   };
 
   list.removeHead = function(){
-
-    var stored = list.head;
+    //store new node with value of current head
+    var stored = Node(list.head.value);
+    //reassign current head to next node in line
     list.head = list.head.next;
-    return stored.value;
+    //if list.head is null just return the stored value
+    if(!list.head){
+      return stored.value;
+    } else {
+    //otherwise reassign list.head.prev null since tail
+    //and head reference same object
+      list.head.prev = null;
+      return stored.value;
+    }
   };
 
   list.removeTail = function(){
-
-    var stored = list.tail;
+    //store new node with value of current tail
+    var stored = Node(list.tail.value);
+    //reassign current tail to next node in line
     list.tail = list.tail.prev;
+    //set the reference in the new tail to null
+    //since head and tail reference same object
+    list.tail.next = null;
+    //return the old tail
     return stored.value;
   };
 
   list.contains = function(target){
     var result = false;
+    //loop over entire list object
     _.each(list, function(val){
+      //loop over all values in list object
       _.each(val, function(item, key){
+        //if value in object matches target 
         if(item === target){
+          //reassign result variable to true
           result = true;
         }
       })
