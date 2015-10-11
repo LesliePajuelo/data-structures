@@ -50,14 +50,14 @@ var LinkedList = function(){
   list.removeHead = function(){
 
     var stored = list.head;
-    list.head = Node(list.tail.value)
+    list.head = list.head.next;
     return stored.value;
   };
 
   list.removeTail = function(){
 
     var stored = list.tail;
-    list.tail = Node(list.head.value)
+    list.tail = list.tail.prev;
     return stored.value;
   };
 
